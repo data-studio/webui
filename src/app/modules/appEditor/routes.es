@@ -58,6 +58,17 @@
                   return {};
                 });
             }],
+            properties: ['$api', '$stateParams', function ($api, $stateParams) {
+              let schemaId = $stateParams.schemaId;
+              return $api.apiGet(`/schema/${schemaId}/properties`)
+                .then(function (res) {
+                  return res.data;
+                })
+                .catch(function (err) {
+                  console.log(err);
+                  return [];
+                });
+            }],
           }
         })
         .state('app.user.app.apis', {

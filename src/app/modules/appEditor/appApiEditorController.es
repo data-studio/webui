@@ -34,11 +34,11 @@
       $api.apiDelete('/operation/' + operationId)
         .then(function (res) {
           $timeout(function () {
-            let i = $apiCtrl.operations.indexOf(operation);
-            if (-1 === i) {
-              return;
-            }
-            $apiCtrl.operations.splice(i, 1);
+            let routeId = operation.RouteId;
+            let i = $apiCtrl.operations.all.indexOf(operation);
+            let l = $apiCtrl.operations.byRouteId[routeId].indexOf(operation);
+            $apiCtrl.operations.all.splice(i, 1);
+            $apiCtrl.operations.byRouteId[routeId].splice(l, 1);
           });
         })
         .catch(function (err) {
