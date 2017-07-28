@@ -2,8 +2,8 @@
   angular.module('DataStudioWebui.AppEditor')
     .controller('AppApiEditorController', AppApiEditorController);
 
-  AppApiEditorController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog', 'api', 'routes', 'operations'];
-  function AppApiEditorController (  $api,   $timeout,   $scope,   $state,   $mdDialog,   api,   routes,   operations) {
+  AppApiEditorController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog', 'ApiSchema', 'api', 'routes', 'operations'];
+  function AppApiEditorController (  $api,   $timeout,   $scope,   $state,   $mdDialog,   ApiSchema,   api,   routes,   operations) {
 
     let $apiCtrl = this;
 
@@ -22,8 +22,11 @@
         clickOutsideToClose: true,
         fullscreen: true,
         locals: {
-          operations: operations,
-          routes: routes,
+          schema: function () {
+            return function () {
+              return new ApiSchema(operations.all, routes);
+            };
+          },
         },
       };
 

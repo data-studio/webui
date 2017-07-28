@@ -35,6 +35,9 @@
 
         return schema;
       }
+      toString () {
+        return JSON.stringify(this, undefined, '  ');
+      }
     };
 
     return ApiSchema;
@@ -44,12 +47,11 @@
   angular.module('DataStudioWebui.AppEditor')
     .controller('AppApiSchemaDialogController', AppApiSchemaDialogController);
 
-  AppApiSchemaDialogController.$inject = ['ApiSchema', '$scope', '$mdDialog', 'operations', 'routes'];
-  function AppApiSchemaDialogController (  ApiSchema,   $scope,   $mdDialog,   operations,   routes) {
+  AppApiSchemaDialogController.$inject = ['ApiSchema', '$scope', '$mdDialog', 'schema'];
+  function AppApiSchemaDialogController (  ApiSchema,   $scope,   $mdDialog,   schema) {
 
-    let schema = new ApiSchema(operations.all, routes);
 
-    $scope.schema = JSON.stringify(schema, undefined, '  ');
+    $scope.schema = schema;
 
     $scope.hide = function() {
       $mdDialog.cancel();
