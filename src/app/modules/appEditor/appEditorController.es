@@ -2,8 +2,8 @@
   angular.module('DataStudioWebui.AppEditor')
     .controller('AppEditorController', AppEditorController);
 
-  AppEditorController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog', 'app'];
-  function AppEditorController (  $api,   $timeout,   $scope,   $state,   $mdDialog,   app) {
+  AppEditorController.$inject = ['$api', '$timeout', '$rootScope', '$scope', '$state', '$mdDialog', 'app'];
+  function AppEditorController (  $api,   $timeout,   $rootScope,   $scope,   $state,   $mdDialog,   app) {
 
     let _app = {
       model: app,
@@ -13,7 +13,7 @@
     };
 
     $scope.chips = ["Id"];
-    $scope.currentNavItem = "overview";
+    $scope.currentNavItem = $state.current.data.name;
 
     $scope.go = function (dest) {
       $state.go(`app.user.app.${dest}`);
@@ -25,6 +25,13 @@
     $scope.schemas = _app.schemas;
     $scope.apis = _app.apis;
     $scope.clients = _app.clients;
+
+    $rootScope.$on('$stateChangeSuccess', function ($event, toState, toParams) {
+      console.log("*****",toState.data.name);
+      $timeout(function () {
+        $scope.currentNavItem = toState.data.name;
+      });
+    });
 
     $scope.addApiDialog = function ($event) {
       var confirm = $mdDialog.prompt()

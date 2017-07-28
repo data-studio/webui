@@ -5,12 +5,46 @@
   AppApiEditorController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog', 'api', 'routes', 'operations'];
   function AppApiEditorController (  $api,   $timeout,   $scope,   $state,   $mdDialog,   api,   routes,   operations) {
 
+    let originatorEv;
+
     let $apiCtrl = this;
 
     $apiCtrl.api = api;
 
     $apiCtrl.operations = operations;
     $apiCtrl.routes = routes;
+
+    $apiCtrl.openMenu = function ($mdMenu, $event) {
+      originatorEv = $event;
+      $mdMenu.open($event);
+    };
+
+    $apiCtrl.switchApi = function (apiId) {
+      if (!apiId) {
+        return;
+      }
+      $state.go('app.user.app.api', { apiId: apiId });
+    };
+
+    $apiCtrl.deleteOperation = function (operation) {
+      let operationId = operation.Id;
+      if (!operationId) {
+        return;
+      }
+      $api.apiDelete('/operation/' + operationId)
+        .then(function (res) {
+          $timeout(function () {
+            let routeId = operation.RouteId;
+            let i = $apiCtrl.operations.all.indexOf(operation);
+            let l = $apiCtrl.operations.byRouteId[routeId].indexOf(operation);
+            $apiCtrl.operations.all.splice(i, 1);
+            $apiCtrl.operations.byRouteId[routeId].splice(l, 1);
+          });
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    };
 
     $apiCtrl.showSchemaView = function ($event) {
 
@@ -96,9 +130,9 @@
 
       var confirm = $mdDialog.prompt()
         .title('Specify the Route Path')
-        .placeholder('/my/api/path')
+        .placeholder('/object/:objectId')
         .ariaLabel('Route Path')
-        .initialValue('/my/api/path')
+        .initialValue('')
         .targetEvent($event)
         .ok('Create Route')
         .cancel('Cancel');
@@ -136,29 +170,4 @@
       return $apiCtrl.api.Id;
     }
 
-  }
-
-  angular.module('DataStudioWebui.AppEditor')
-    .controller('CreateApiOperationDialogController', CreateApiOperationDialogController);
-
-  CreateApiOperationDialogController.$inject = ['$scope', '$mdDialog', 'apiRoute'];
-  function CreateApiOperationDialogController (  $scope,   $mdDialog,   apiRoute) {
-    $scope.$data = {
-      Method: 'get',
-      _apiRoute: apiRoute,
-    };
-
-    $scope.apiRoute = apiRoute;
-
-    $scope.hide = function() {
-      $mdDialog.cancel();
-    };
-
-    $scope.cancel = function() {
-      $mdDialog.cancel();
-    };
-
-    $scope.answer = function() {
-      $mdDialog.hide($scope.$data);
-    };
   }

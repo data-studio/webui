@@ -6,7 +6,7 @@
 }
 #Dialog_ViewApiSchema{
   .schema-source pre {
-    margin: 24px;
+
   }
 }
 #appEditor {
@@ -31,11 +31,13 @@
   .app-dashboard-cards md-card {
     margin: 8px 8px 16px;
   }
-  .app-schemas {
-    padding: 8px;
-    .schema-side {
-      margin: 8px;
-    }
+
+  .create-api-card {
+    height: 125px;
+    margin: 8px;
+    border: 2px dashed;
+    border-radius: 3px;
+    border-color: rgba(0,0,0,0.12);
   }
 
   .empty-card-filler {
@@ -54,6 +56,24 @@
     }
     md-card md-card-header-text .md-subhead {
       font-weight: 300;
+    }
+  }
+  .app-api-cards {
+    padding:8px;
+  }
+
+  .app-schemas {
+    padding: 8px;
+    .schema-side {
+      margin: 8px;
+    }
+    .schema-properties-container {
+      .schema-property {
+        margin: 8px;
+        background-color: #fff;
+        border-radius: 2px;
+        padding: 0 0 0 16px;
+      }
     }
   }
 
@@ -108,6 +128,10 @@
           margin: 8px;
           background-color: #fff;
           border-radius: 2px;
+          span.md-body-1 {
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
           .http-method {
             line-height: 24px;
             padding: 8px;
