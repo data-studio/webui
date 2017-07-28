@@ -31,12 +31,6 @@
   .app-dashboard-cards md-card {
     margin: 8px 8px 16px;
   }
-  .app-schemas {
-    padding: 8px;
-    .schema-side {
-      margin: 8px;
-    }
-  }
 
   .create-api-card {
     height: 125px;
@@ -66,6 +60,21 @@
   }
   .app-api-cards {
     padding:8px;
+  }
+
+  .app-schemas {
+    padding: 8px;
+    .schema-side {
+      margin: 8px;
+    }
+    .schema-properties-container {
+      .schema-property {
+        margin: 8px;
+        background-color: #fff;
+        border-radius: 2px;
+        padding: 0 0 0 16px;
+      }
+    }
   }
 
   .app-apis {

@@ -19,8 +19,9 @@
                 <span class="md-title">Schemas</span>
                 <span class="md-subhead">Data Types</span>
               </md-card-header-text>
-              <md-button style="margin: 0;" class="md-icon-button" ng-click="addSchemaDialog($event)">
-                <md-icon class="material-icons">add</md-icon>
+              <md-button style="margin: 0;" class="md-icon-button"
+                ui-sref="app.user.app.schemas({ appId: model.Id })">
+                <md-icon class="material-icons">chevron_right</md-icon>
               </md-button>
             </md-card-header>
             <md-divider></md-divider>
@@ -99,8 +100,9 @@
                 <span class="md-title">Clients</span>
                 <span class="md-subhead">For Users</span>
               </md-card-header-text>
-              <md-button style="margin: 0;" class="md-icon-button" ng-click="addClientDialog($event)">
-                <md-icon class="material-icons">add</md-icon>
+              <md-button style="margin: 0;" class="md-icon-button"
+                ui-sref="app.user.app.clients({ appId: model.Id })">
+                <md-icon class="material-icons">chevron_right</md-icon>
               </md-button>
             </md-card-header>
             <md-divider></md-divider>
