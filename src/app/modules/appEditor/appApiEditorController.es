@@ -2,8 +2,8 @@
   angular.module('DataStudioWebui.AppEditor')
     .controller('AppApiEditorController', AppApiEditorController);
 
-  AppApiEditorController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog', 'api', 'routes', 'operations'];
-  function AppApiEditorController (  $api,   $timeout,   $scope,   $state,   $mdDialog,   api,   routes,   operations) {
+  AppApiEditorController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog', 'ApiSchema', 'api', 'routes', 'operations'];
+  function AppApiEditorController (  $api,   $timeout,   $scope,   $state,   $mdDialog,   ApiSchema,   api,   routes,   operations) {
 
     let originatorEv;
 
@@ -48,6 +48,10 @@
 
     $apiCtrl.showSchemaView = function ($event) {
 
+      let s = (function () {
+        return new ApiSchema(operations.all, routes);
+      })();
+
       let schemaView = {
         controller: 'AppApiSchemaDialogController',
         templateUrl: 'modules/appEditor/html/dialog/viewApiSchema.html',
@@ -56,8 +60,7 @@
         clickOutsideToClose: true,
         fullscreen: true,
         locals: {
-          operations: operations,
-          routes: routes,
+          schema: s,
         },
       };
 
@@ -118,6 +121,7 @@
 
             $apiCtrl.operations.byRouteId[routeId] = $apiCtrl.operations.byRouteId[routeId] || [];
             $apiCtrl.operations.byRouteId[routeId].push(newOperation);
+            $apiCtrl.operations.all.push(newOperation);
           });
         })
         .catch(function (err) {

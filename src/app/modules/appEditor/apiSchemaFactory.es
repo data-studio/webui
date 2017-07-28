@@ -82,6 +82,9 @@
         };
 
       }
+      toString () {
+        return JSON.stringify(this, undefined, '  ');
+      }
     };
 
     return ApiSchema;

@@ -45,10 +45,24 @@
           </div>
         </md-input-container>
 
+        <div>
+          <md-checkbox
+            ng-model="touAccepted"
+            aria-label="I have read and agree to the Terms of Use and Privacy Policy"
+            ng-true-value="true"
+            ng-false-value="false"
+            class="md-align-top-left" flex>
+            I have read and agree to the
+            <a href ng-click="showLegal($event, 'termsOfUse')">Terms of Use</a>
+            and
+            <a href ng-click="showLegal($event, 'privacyPolicy')">Privacy Policy</a>
+          </md-checkbox>
+        </div>
+
       </md-content>
 
       <div class="submit-row" layout="row" layout-align="end center">
-        <md-button class="md-primary md-raised" type="submit" ng-disabled="submitDisabled">
+        <md-button class="md-primary md-raised" type="submit" ng-disabled="!touAccepted || submitDisabled">
           Create my account
         </md-button>
       </div>
