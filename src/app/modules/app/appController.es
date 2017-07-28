@@ -6,6 +6,8 @@
   function AppController (  $scope,   $mdDialog,   $animate) {
 
     $scope.showLegal = function ($event, docId) {
+      $event.stopPropagation();
+      $event.preventDefault();
       let dialog = {
         controller: 'LegalDialogController',
         templateUrl: 'modules/app/html/dialog/' + docId + '.html',
