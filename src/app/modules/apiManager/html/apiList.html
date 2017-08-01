@@ -1,0 +1,66 @@
+<div layout="row"
+  flex>
+
+  <div class="api-list"
+    style="margin: 8px;padding:8px;"
+    flex>
+
+    <div layout="column">
+      <div style="border-bottom: 1px solid rgba(0,0,0,0.12);margin:24px 8px 8px;padding:0 8px;height:49px;"
+        layout="row"
+        layout-align="start center">
+        <md-card-header-text>
+          <span class="md-headline">
+            My Apis
+          </span>
+        </md-card-header-text>
+      </div>
+
+      <div>
+        <md-list>
+          <md-list-item class="api-list-api md-2-line"
+            ng-repeat="api in apis"
+            ui-sref="app.user.apiManager.api({ apiId: api.Id })"
+            layout-align="start start">
+            <md-icon class="material-icons">
+              chevron_right
+            </md-icon>
+            <div class="md-list-item-text" layout="column">
+              <h3>{{ api.Name }} v1</h3>
+              <p>
+                sometext
+              </p>
+            </div>
+            <div layout="row" layout-align="start start">
+              <md-icon class="material-icons" style="margin-right:8px;">
+                dns
+              </md-icon>
+              <span style="float:left;">
+                {{ api.Host.split('.')[0] }}
+              </span>
+              <span class="" style="color: rgba(0,0,0,0.38);">
+                .{{ api.Host.split('.').slice(1).join('.') }}
+              </span>
+            </div>
+            <!-- <div layout="row" layout-align="start start">
+              <md-icon class="material-icons">
+                chevron_right
+              </md-icon>
+              <div layout="column">
+                <h3 class="md-title">
+                  {{ api.Name }}
+                </h3>
+                <span class="md-caption">
+                  {{ api.Host }}
+                </span>
+              </div>
+            </div> -->
+          </md-list-item>
+        </md-list>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

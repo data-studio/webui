@@ -15,6 +15,8 @@
         let routes = this.routes;
         let paths = {};
         let routePaths = {};
+        let tags = [];
+        let addedTags = {};
 
         routes.forEach(route => {
           let path = route.Path;
@@ -46,11 +48,22 @@
             produces: [
               'application/json',
             ],
-            params: [],
+            parameters: [],
             responses: {},
           };
 
           decorate(op, method, targetPath);
+
+          op.tags.forEach(tag => {
+            if (tag in addedTags) {
+              return;
+            }
+            addedTags[tag] = {
+              name: tag,
+              description: ""
+            };
+            tags.push(addedTags[tag]);
+          });
 
           paths[targetPath][method] = op;
 
@@ -72,7 +85,7 @@
           },
           host: 'api.localhost',
           basePath: '/',
-          tags: [],
+          tags: tags,
           schemes: [
             'http',
             'https',
@@ -104,7 +117,7 @@
           op.tags.push(className);
           return;
         }
-        op.params.push({
+        op.parameters.push({
           in: 'path',
           name: uriPart.substr(1),
           description: '',
@@ -118,7 +131,7 @@
         add400Response(op);
         add401Response(op);
         add403Response(op);
-        op.params.push({
+        op.parameters.push({
           in: 'body',
           name: 'body',
           description: `The new \`${className}\``,
@@ -140,7 +153,7 @@
         add400Response(op);
         add401Response(op);
         add403Response(op);
-        op.params.push({
+        op.parameters.push({
           in: 'body',
           name: 'body',
           description: `The \`${className}\` data to save`,

@@ -54,6 +54,32 @@
         <p>Create an App</p>
       </md-list-item>
 
+      <md-divider></md-divider>
+
+      <md-subheader ng-click="showSidenavApis=!showSidenavApis">
+        My Apis
+      </md-subheader>
+
+      <md-list-item ui-sref-active="active"
+        ui-sref="app.user.apiManager.apiList({})"
+        ng-if="showSidenavApis"
+        ng-click="toggleSidenav('left')">
+        <md-icon class="material-icons">
+          list
+        </md-icon>
+        <p>List My Apis</p>
+      </md-list-item>
+
+      <md-list-item
+        ng-click="createApi()"
+        ng-if="showSidenavApis"
+        ng-click="toggleSidenav('left')">
+        <md-icon class="material-icons">
+          create
+        </md-icon>
+        <p>Create an Api</p>
+      </md-list-item>
+
     </md-list>
   </div>
 </md-sidenav>

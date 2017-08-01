@@ -13,6 +13,7 @@
       $state.go('app.anon.login');
     }
 
+    $scope.showSidenavApis = true;
     $scope.showSidenavApps = true;
     $scope.apps = userApps;
     $scope.user = user;
