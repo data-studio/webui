@@ -40,5 +40,8 @@
     "karma-chrome-launcher": "2.1.1",
     "karma-jasmine": "1.1.0",
     "node-sass": "^4.5.3"
+  },
+  "dependencies": {
+    "material-design-icons": "^3.0.1"
   }
 }

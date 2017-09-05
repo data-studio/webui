@@ -16,40 +16,15 @@
  */
 'use strict';
 
-/**
- * Gulp Task URI Prefix
- * @const {Array}
- */
-const TASKS = [
-  'default',
-  'build',
-  'dist',
-  'unit',
-  'csscompile',
-  'jscompile',
-  'watch-dev',
-  'copyfonts',
-];
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
 
-/**
- * Gulp Task URI Prefix
- * @const {String}
- */
-const TASK_URI_PREFIX = './src/ops/gulp/';
+module.exports = function (gulp) {
 
-/**
- * Load Gulp Tasks
- */
-module.exports = (function loadGulpTasks (gulp, t) {
-  return t.map(taskName => require(taskUri(taskName))(gulp));
-})(require('gulp'), TASKS);
+  gulp.task('copyfonts', function () {
+    return gulp.src('node_modules/material-design-icons/iconfont/*.{eot,woff2,woff,ttf}')
+      .pipe(gulp.dest('build/font'));
+  });
 
-/**
- * Gulp Task Source URI
- *
- * @param {String} taskName The task name
- * @returns {String} The task name with TASK_URI_PREFIX prefixed
- */
-function taskUri (taskName) {
-  return `${TASK_URI_PREFIX}${taskName}`;
-}
+};
