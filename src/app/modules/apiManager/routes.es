@@ -15,7 +15,18 @@
         })
         .state('app.user.apiManager.api', {
           url: '/api/:apiId',
-          templateUrl: 'modules/apiManager/html/api.html'
+          controller: 'SingleApiController',
+          controllerAs: '$singleApi',
+          templateUrl: 'modules/apiManager/html/api.html',
+          abstract: true
+        })
+        .state('app.user.apiManager.api.home', {
+          url: '',
+          templateUrl: 'modules/apiManager/html/apiHome.html'
+        })
+        .state('app.user.apiManager.api.config', {
+          url: '/config',
+          templateUrl: 'modules/apiManager/html/config.html'
         });
 
   }]);

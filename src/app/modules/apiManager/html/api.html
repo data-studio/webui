@@ -1,0 +1,30 @@
+<div id="appEditor" layout="column" flex>
+
+  <header>
+    <span class="md-headline">
+      {{ model.Hostname }}
+      <span style="font-weight:300;color:rgba(255,255,255,0.5);">Api</span>
+    </span>
+  </header>
+
+  <md-nav-bar
+    md-theme="darknav"
+    md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links">
+    <md-nav-item md-nav-click="go('dashboard')" name="summary">
+      Overview
+    </md-nav-item>
+    <md-nav-item md-nav-click="go('routes')" name="summary">
+      Routes
+    </md-nav-item>
+    <md-nav-item md-nav-click="go('apis')" name="apis">
+      Consumers &amp; Tokens
+    </md-nav-item>
+    <md-nav-item md-nav-click="go('schemas')" name="schemas">
+      Configuration
+    </md-nav-item>
+  </md-nav-bar>
+
+  <div flex ui-view></div>
+
+</div>

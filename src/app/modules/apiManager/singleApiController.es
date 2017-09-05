@@ -1,9 +1,9 @@
 
   angular.module('DataStudioWebui.ApiManager')
-    .controller('ApiManagerController', ApiManagerController);
+    .controller('SingleApiController', SingleApiController);
 
-  ApiManagerController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog'];
-  function ApiManagerController (  $api,   $timeout,   $scope,   $state,   $mdDialog) {
+  SingleApiController.$inject = ['$api', '$timeout', '$scope', '$state', '$mdDialog'];
+  function SingleApiController (  $api,   $timeout,   $scope,   $state,   $mdDialog) {
 
     $scope.apis = [
       {

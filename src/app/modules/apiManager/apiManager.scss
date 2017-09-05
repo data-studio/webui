@@ -2,9 +2,17 @@
 #apiManager {
 
   .api-list {
-    .api-list-api {
-      h3.md-title {
-        margin: 0;
+    .md-list-wrapper {
+      md-list {
+        background-color: #fff;
+        .api-list-api {
+          div:last-of-type {
+            padding-right: 8px;
+          }
+          h3.md-title {
+            margin: 0;
+          }
+        }
       }
     }
   }
