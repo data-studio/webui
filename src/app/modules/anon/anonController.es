@@ -9,6 +9,10 @@
       $state.go('app.user.dashboard');
     });
 
+    $scope.showLogin = function () {
+      $state.go('app.anon.login');
+    };
+
     if ($auth.isAuthorized) {
       $state.go('app.user.dashboard');
     }
