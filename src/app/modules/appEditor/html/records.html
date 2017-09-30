@@ -1,0 +1,30 @@
+<div class="app-records"
+  layout="row"
+  layout-xs="column">
+
+  <div flex>
+
+    <md-card flex>
+      <md-card-content>
+        <md-select ng-model="$appRecords.userState">
+          <md-option><em>None</em></md-option>
+          <md-option ng-repeat="recordType in $appRecords.recordTypes" ng-value="recordType" ng-disabled="$index === 1">
+            {{recordType.Label}}
+          </md-option>
+        </md-select>
+      </md-card-content>
+    </md-card>
+
+  </div>
+
+  <div class="schema-side" flex="30">
+    <!-- <md-list>
+      <md-subheader>App Schemas</md-subheader>
+      <md-list-item ng-repeat="schema in schemas" ui-sref="app.user.app.schema({ appId: model.Id, schemaId: schema.Id})">
+          <md-icon class="material-icons">chevron_right</md-icon>
+          <p>{{ schema.Name }}</p>
+      </md-list-item>
+    </md-list> -->
+  </div>
+
+</div>

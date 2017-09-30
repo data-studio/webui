@@ -1,0 +1,53 @@
+<md-dialog id="Dialog_CreateAppEnv"
+  aria-label="Create Environment Form">
+  <form name="createEnvForm" ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Create App Environment</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon class="material-icons" aria-label="Close dialog">
+            close
+          </md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+        <p>{{ app.Name }}</p>
+        <div layout="row"
+          layout-xs="column"
+          layout-align="start start"
+          layout-align-xs="start stretch">
+          <md-input-container flex>
+            <label>Environment Name</label>
+            <input name="name" ng-model="$data.Name" md-maxlength="50">
+          </md-input-container>
+        </div>
+        <div>
+          <md-checkbox
+            ng-model="$data.IsProduction"
+            aria-label="This is a Production environment"
+            ng-true-value="true"
+            ng-false-value="false"
+            class="md-align-top-left" flex>
+            <span>Production Environment</span>
+          </md-checkbox>
+        </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()">
+        Cancel
+      </md-button>
+      <md-button type="submit"
+        class="md-primary"
+        ng-click="answer()">
+        Create App Environment
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

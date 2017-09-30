@@ -1,0 +1,186 @@
+<div class="api-list-html"
+  layout="row"
+  layout-xs="column">
+
+  <div flex>
+
+
+  <div class="api-list"
+    style="margin: 8px;padding:8px;"
+    flex>
+
+    <div layout="column">
+      <div style="border-bottom: 1px solid rgba(0,0,0,0.12);margin:24px 8px 8px;padding:0 8px;height:49px;"
+        layout="row"
+        layout-align="start center">
+        <md-card-header-text>
+          <span class="md-headline">
+            My Apis
+          </span>
+        </md-card-header-text>
+      </div>
+
+      <div layout="row">
+
+      <div ng-if="0 === apis.length"
+        layout="row"
+        layout-align="start start"
+        layout-wrap>
+
+        <md-card flex>
+          <md-card-content style="padding:0;" layout-align="center center">
+            <div style="padding: 40px 16px;text-align: center;">
+              Create a new Api to get started
+              <md-button class="md-primary"
+                ng-click="createApi($event)">
+                <md-icon class="material-icons">
+                  create
+                </md-icon>
+                Create Api
+              </md-button>
+            </div>
+          </md-card-content>
+        </md-card>
+
+      </div>
+
+      <div ng-if="apis.length > 0"
+        flex>
+        <md-card>
+          <md-card-header>
+            <md-card-avatar>
+              <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+            </md-card-avatar>
+            <md-card-header-text>
+              <span class="md-title">Title</span>
+              <span class="md-subhead">subhead</span>
+            </md-card-header-text>
+          </md-card-header>
+          <md-divider></md-divider>
+          <md-card-body style="padding: 0;">
+            <div class="md-list-wrapper">
+              <md-list>
+                <md-list-item class="api-list-api"
+                  ng-repeat="api in apis"
+                  ui-sref="app.user.apiManager.api.home({ apiId: api.Id })"
+                  layout-align="start start">
+
+                  <!-- <md-checkbox></md-checkbox> -->
+
+                  <div class="md-list-item-text"
+                    layout="column"
+                    style="width:110px">
+                    <p class="md-body-2">
+                      {{ api.Name }}
+                    </p>
+                  </div>
+
+                  <div layout="row"
+                    layout-align="start start"
+                    style="margin-left:24px;">
+                    <md-icon class="material-icons" style="margin-right:8px;">
+                      public
+                    </md-icon>
+                    <span style="float:left;">
+                      {{ api.Host.split('.')[0] }}
+                    </span>
+                    <span class="" style="color: rgba(0,0,0,0.38);">
+                      .{{ api.Host.split('.').slice(1).join('.') }}
+                    </span>
+                    <span flex></span>
+                  </div>
+
+                  <span flex></span>
+
+                  <div layout="row"
+                    layout-align="start start"
+                    style="margin-left:24px;">
+                    <md-icon class="material-icons" style="margin-right:8px;">
+                      storage
+                    </md-icon>
+                    <span style="float:left;">
+                      3,652
+                    </span>
+                    <span flex></span>
+                  </div>
+
+                  <div layout="row"
+                    layout-align="start start"
+                    style="margin-left:24px;">
+                    <md-icon class="material-icons" style="margin-right:8px;">
+                      device_hub
+                    </md-icon>
+                    <span style="float:left;">
+                      4
+                    </span>
+                  </div>
+
+                  <div layout="row"
+                    layout-align="start start"
+                    style="margin-left:24px;">
+                    <md-icon class="material-icons" style="margin-right:8px;">
+                      functions
+                    </md-icon>
+                    <span style="float:left;">
+                      11
+                    </span>
+                  </div>
+
+                  <div layout="row"
+                    layout-align="start start"
+                    style="margin-left:24px;">
+                    <md-icon class="material-icons" style="margin-right:8px;">
+                      check
+                    </md-icon>
+                    <span style="float:left;">
+                      OK
+                    </span>
+                    <span flex></span>
+                  </div>
+
+                </md-list-item>
+              </md-list>
+            </div>
+          </md-card-body>
+          <md-divider></md-divider>
+          <md-card-actions>
+            <div layout="row">
+              <span flex></span>
+              <md-button class="md-icon-button" disabled>
+                <md-icon class="material-icons">
+                  first_page
+                </md-icon>
+              </md-button>
+              <md-button class="md-icon-button" disabled>
+                <md-icon class="material-icons">
+                  chevron_left
+                </md-icon>
+              </md-button>
+              <md-button class="md-icon-button" disabled>
+                <md-icon class="material-icons">
+                  chevron_right
+                </md-icon>
+              </md-button>
+              <md-button class="md-icon-button" disabled>
+                <md-icon class="material-icons">
+                  last_page
+                </md-icon>
+              </md-button>
+            </div>
+          </md-card-actions>
+        </md-card>
+      </div>
+
+      <div class="api-list-side" style="padding:8px;" flex-gt-xs="30" flex-xs>
+        <md-list>
+          <md-list-item ng-click="$apiCtrl.createRoute($event)">
+              <md-icon class="material-icons">add</md-icon>
+              <p>Create new Api</p>
+          </md-list-item>
+        </md-list>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,5 +1,5 @@
 /**
- * Data Studio
+ * Eviratec Data Studio
  * Copyright (c) 2017 Callan Peter Milne
  *
  * Permission to use, copy, modify, and/or distribute this software for any
@@ -28,6 +28,7 @@ const TASKS = [
   'csscompile',
   'jscompile',
   'watch-dev',
+  'copyfonts',
 ];
 
 /**

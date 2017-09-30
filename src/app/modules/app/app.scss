@@ -1,11 +1,15 @@
 @import "../../../../node_modules/angular-material/angular-material.scss";
 
-/* fallback */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+  src: url('font/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url('font/MaterialIcons-Regular.woff2') format('woff2'),
+       url('font/MaterialIcons-Regular.woff') format('woff'),
+       url('font/MaterialIcons-Regular.ttf') format('truetype');
 }
 
 .legal-text {
@@ -16,16 +20,25 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
+  font-size: 24px;  /* Preferred icon size */
   display: inline-block;
-  white-space: nowrap;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
   word-wrap: normal;
+  white-space: nowrap;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+
+  /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
 
 body, html {
@@ -35,7 +48,7 @@ body, html {
 
 
 body, md-content.md-blue-grey-theme {
-  background-color: #eee; }
+  background: linear-gradient(to top, #e0e0e0 0%, #fff 100%); }
 
 md-toolbar:not(.md-hue-1),
 .md-fab {
@@ -93,8 +106,8 @@ ul {
 
 md-toolbar#userToolbar.md-default-theme:not(.md-menu-toolbar),
 md-toolbar#userToolbar:not(.md-menu-toolbar) {
-  background-color: #212121;
-  border-bottom: 1px solid rgba(44,44,44,1);
+  background-color: #607D8B;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 md-toolbar#userToolbar img.logo {
   height: 24px;
@@ -132,4 +145,26 @@ md-content.ds-main-content {
   border: 2px dashed;
   border-radius: 3px;
   border-color: rgba(0,0,0,0.12);
+}
+
+#root {
+  max-width: 1104px;
+  max-height: 640px;
+  height: auto;
+  min-height: auto;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 3px 20px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 959px) {
+
+  #root {
+    max-height: auto;
+    height: 100%;
+    min-height: 100%;
+    border-radius: 0px;
+  }
+
 }

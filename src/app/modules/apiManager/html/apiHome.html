@@ -1,0 +1,53 @@
+<div class="app-apis"
+  layout="row"
+  layout-xs="column"
+  layout-fill-gt-xs>
+
+  <div style="padding:8px;"
+    layout-xs="column"
+    flex>
+
+    <div layout="column"
+      layout-align="start stretch">
+
+      <div style="margin:8px;">
+        <div class=""
+          style="border-radius:3px;border:2px dashed rgba(0,0,0,0.12);padding:8px;"
+          layout-align="center center"
+          layout-fill
+          flex
+          layout="column"
+          ng-if="0 === apis.length">
+
+          <p class="md-body-1">
+            Nothing to show yet
+          </p>
+
+          <md-button class="md-primary md-raised"
+            ng-click="addApiDialog($event)">
+            Create API
+          </md-button>
+
+        </div>
+      </div>
+
+      <div layout="row" layout-xs="column" layout-wrap>
+        <div flex-gt-xs="50">
+          <md-card>
+            <md-card-header ui-sref="app.user.app.api({ appId: api.AppId, apiId: api.Id })">
+              <md-card-header-text>
+                <span class="md-title">user-api.starmicro.services</span>
+                <span class="md-subhead">{{ $appEditor.api.Name }} API</span>
+              </md-card-header-text>
+            </md-card-header>
+            <md-divider></md-divider>
+            <md-card-content>
+              meow
+            </md-card-content>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="app-setup"
+  layout="row"
+  layout-xs="column">
+
+  <div flex>
+
+    <md-card flex>
+      <md-card-content layout="column">
+        <div layout="row">
+          <md-input-container>
+            <label>App Name</label>
+            <input type="text"
+              ng-model="$appSetup.new.AppName">
+          </md-input-container>
+          <md-input-container>
+            <label>Website Url</label>
+            <input type="text">
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <md-input-container>
+            <label>App ID</label>
+            <input type="text"
+              ng-model="$appSetup.new.AppName">
+          </md-input-container>
+          <md-input-container>
+            <label>App Development Key</label>
+            <input type="text">
+          </md-input-container>
+          <md-input-container>
+            <label>App Production Key</label>
+            <input type="text">
+          </md-input-container>
+        </div>
+        <md-input-container>
+          <label>App Name</label>
+          <input type="text"
+            ng-model="$appSetup.new.AppName">
+        </md-input-container>
+        <md-input-container>
+          <label>Website Url</label>
+          <input type="text">
+        </md-input-container>
+      </md-card-content>
+    </md-card>
+
+  </div>
+
+  <div class="schema-side" flex="30">
+    <!-- <md-list>
+      <md-subheader>App Schemas</md-subheader>
+      <md-list-item ng-repeat="schema in schemas" ui-sref="app.user.app.schema({ appId: model.Id, schemaId: schema.Id})">
+          <md-icon class="material-icons">chevron_right</md-icon>
+          <p>{{ schema.Name }}</p>
+      </md-list-item>
+    </md-list> -->
+  </div>
+
+</div>

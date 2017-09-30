@@ -1,0 +1,77 @@
+<div class="app-records"
+  layout="row"
+  layout-xs="column">
+
+  <div flex>
+
+    <!-- <md-card flex>
+      <md-card-content>
+        <md-select ng-model="$appRecords.userState">
+          <md-option><em>None</em></md-option>
+          <md-option ng-repeat="env in $appEnvs.envs" ng-value="recordType">
+            {{ env.Name }}
+          </md-option>
+        </md-select>
+      </md-card-content>
+    </md-card> -->
+
+    <h2 class="md-title">
+      {{ $appEnvs.current.Name }} Environment
+    </h2>
+
+    <md-card flex>
+      <md-card-content>
+        <h4 style="margin-top: 0;">App Id</h4>
+        <p>{{ model.Id }}</p>
+        <h4 style="margin-top: 0;">App Env Id</h4>
+        <p>{{ $appEnvs.current.Id }}</p>
+      </md-card-content>
+    </md-card>
+
+    <h3 class="md-title">
+      Api Access
+    </h3>
+
+    <md-card flex>
+      <md-card-content>
+        <h4 style="margin-top: 0;">Api Host</h4>
+        <p>https://api-dsa7dg6as7.datastudio.eviratec.software/</p>
+      </md-card-content>
+    </md-card>
+
+    <h3 class="md-title">
+      Keys &amp; Tokens
+    </h3>
+
+    <md-card flex>
+      <md-card-content>
+        <h4 style="margin-top: 0;">App Env Public Key</h4>
+        <p>gufhigfd7s8g97fds89gy7fds89yg7f8ds9-g8f9ds7g9</p>
+        <h4 style="margin-top: 0;">App Env Private Key</h4>
+        <p>******************************************</p>
+      </md-card-content>
+    </md-card>
+
+    <h3 class="md-title">
+      Auth Providers
+    </h3>
+
+  </div>
+
+  <div class="schema-side" flex="30">
+    <md-list>
+      <md-subheader>App Environments</md-subheader>
+      <!-- <md-list-item ng-repeat="env in $appEnvs.envs" ui-sref="app.user.app.env({ appId: model.Id, envId: env.Id})"> -->
+      <md-list-item ng-repeat="env in $appEnvs.envs"
+        ng-click="$appEnvs.setCurrentEnv($event, env)">
+        <md-icon class="material-icons">chevron_right</md-icon>
+        <p>{{ env.Name }}</p>
+      </md-list-item>
+      <md-list-item ng-click="$appEnvs.createEnv($event)">
+        <md-icon class="material-icons">add</md-icon>
+        <p>Create new Env</p>
+      </md-list-item>
+    </md-list>
+  </div>
+
+</div>

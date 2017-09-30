@@ -1,3 +1,19 @@
+/**
+ * Eviratec Data Studio
+ * Copyright (c) 2017 Callan Peter Milne
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
 
   angular.module('DataStudioWebui.AppEditor')
     .config(['$stateProvider', function ($stateProvider) {
@@ -30,6 +46,48 @@
             name: 'summary',
           },
         })
+        .state('app.user.app.records', {
+          url:'/records',
+          templateUrl: 'modules/appEditor/html/records.html',
+          controller: 'AppRecordsController',
+          controllerAs: '$appRecords',
+          data: {
+            name: 'records',
+          },
+        })
+        .state('app.user.app.environments', {
+          url:'/environments',
+          templateUrl: 'modules/appEditor/html/environments.html',
+          controller: 'AppEnvsController',
+          controllerAs: '$appEnvs',
+          data: {
+            name: 'environments',
+          },
+          resolve: {
+            envs: ['$api', '$stateParams', function ($api, $stateParams) {
+              let appId = $stateParams.appId;
+              return $api.apiGet(`/app/${appId}/envs`)
+                .then(function (res) {
+                  return res.data;
+                })
+                .catch(function (err) {
+                  console.log(err);
+                  return {};
+                });
+            }],
+          }
+        })
+        .state('app.user.app.setup', {
+          url:'/setup',
+          templateUrl: 'modules/appEditor/html/setup.html',
+          controller: 'AppSetupController',
+          controllerAs: '$appSetup',
+          data: {
+            name: 'setup',
+          },
+        })
+
+
         .state('app.user.app.schemas', {
           url:'/schemas',
           templateUrl: 'modules/appEditor/html/schemas.html',

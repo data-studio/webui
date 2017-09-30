@@ -1,5 +1,5 @@
 /**
- * Data Studio
+ * Eviratec Data Studio
  * Copyright (c) 2017 Callan Peter Milne
  *
  * Permission to use, copy, modify, and/or distribute this software for any
@@ -23,6 +23,6 @@ module.exports = function (gulp) {
       .pipe(gulp.dest('build'));
   });
 
-  gulp.task('build', [ 'vendorjscompile', 'tplcachecompile', 'jscompile', 'csscompile', 'copystatic' ]);
+  gulp.task('build', [ 'vendorjscompile', 'tplcachecompile', 'jscompile', 'csscompile', 'copystatic', 'copyfonts' ]);
 
 };
