@@ -2,7 +2,7 @@
 
   <header>
     <span class="md-headline">
-      <span style="font-weight:300;color:rgba(255,255,255,0.5);">App /</span>
+      <!-- <span style="font-weight:300;color:rgba(255,255,255,0.5);">App /</span> -->
       {{ model.Name }}
     </span>
   </header>
@@ -12,13 +12,16 @@
     md-selected-nav-item="currentNavItem"
     nav-bar-aria-label="navigation links">
     <md-nav-item md-nav-click="go('dashboard')" name="summary">
-      Summary
+      Dashboard
     </md-nav-item>
-    <md-nav-item md-nav-click="go('apis')" name="apis">
-      APIs
+    <md-nav-item md-nav-click="go('records')" name="records">
+      Records
     </md-nav-item>
-    <md-nav-item md-nav-click="go('schemas')" name="schemas">
-      Schemas
+    <md-nav-item md-nav-click="go('development')" name="development">
+      Development
+    </md-nav-item>
+    <md-nav-item md-nav-click="go('setup')" name="setup">
+      Setup
     </md-nav-item>
   </md-nav-bar>
 

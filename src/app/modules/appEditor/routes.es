@@ -30,6 +30,33 @@
             name: 'summary',
           },
         })
+        .state('app.user.app.records', {
+          url:'/records',
+          templateUrl: 'modules/appEditor/html/records.html',
+          controller: 'AppRecordsController',
+          controllerAs: '$appRecords',
+          data: {
+            name: 'records',
+          },
+        })
+        .state('app.user.app.development', {
+          url:'/development',
+          templateUrl: 'modules/appEditor/html/development.html',
+          data: {
+            name: 'development',
+          },
+        })
+        .state('app.user.app.setup', {
+          url:'/setup',
+          templateUrl: 'modules/appEditor/html/setup.html',
+          controller: 'AppSetupController',
+          controllerAs: '$appSetup',
+          data: {
+            name: 'setup',
+          },
+        })
+
+
         .state('app.user.app.schemas', {
           url:'/schemas',
           templateUrl: 'modules/appEditor/html/schemas.html',
