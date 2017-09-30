@@ -4,14 +4,27 @@
 
   <div flex>
 
-    <md-card flex>
+    <!-- <md-card flex>
       <md-card-content>
         <md-select ng-model="$appRecords.userState">
           <md-option><em>None</em></md-option>
-          <md-option ng-repeat="env in $appEnvs.envs" ng-value="recordType" ng-disabled="$index === 1">
+          <md-option ng-repeat="env in $appEnvs.envs" ng-value="recordType">
             {{ env.Name }}
           </md-option>
         </md-select>
+      </md-card-content>
+    </md-card> -->
+
+    <h2 class="md-title">
+      {{ $appEnvs.current.Name }} Environment
+    </h2>
+
+    <md-card flex>
+      <md-card-content>
+        <h4 style="margin-top: 0;">App Id</h4>
+        <p>{{ model.Id }}</p>
+        <h4 style="margin-top: 0;">App Env Id</h4>
+        <p>{{ $appEnvs.current.Id }}</p>
       </md-card-content>
     </md-card>
 
@@ -48,7 +61,9 @@
   <div class="schema-side" flex="30">
     <md-list>
       <md-subheader>App Environments</md-subheader>
-      <md-list-item ng-repeat="env in $appEnvs.envs" ui-sref="app.user.app.env({ appId: model.Id, envId: env.Id})">
+      <!-- <md-list-item ng-repeat="env in $appEnvs.envs" ui-sref="app.user.app.env({ appId: model.Id, envId: env.Id})"> -->
+      <md-list-item ng-repeat="env in $appEnvs.envs"
+        ng-click="$appEnvs.setCurrentEnv($event, env)">
         <md-icon class="material-icons">chevron_right</md-icon>
         <p>{{ env.Name }}</p>
       </md-list-item>

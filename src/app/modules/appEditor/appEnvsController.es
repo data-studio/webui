@@ -2,10 +2,18 @@
   angular.module('DataStudioWebui.AppEditor')
     .controller('AppEnvsController', AppEnvsController);
 
-  AppEnvsController.$inject = ['$scope', '$api', '$mdDialog'];
-  function AppEnvsController (  $scope,   $api,   $mdDialog) {
+  AppEnvsController.$inject = ['$scope', '$api', '$mdDialog', 'envs', '$timeout'];
+  function AppEnvsController (  $scope,   $api,   $mdDialog,   envs,   $timeout) {
 
     let $appEnvs = this;
+
+    $appEnvs.envs = envs;
+
+    $appEnvs.current = envs[0];
+
+    $appEnvs.setCurrentEnv = function ($event, env) {
+      $appEnvs.current = env;
+    };
 
     $appEnvs.createEnv = function ($event, app) {
 
@@ -47,16 +55,9 @@
       $api.apiPost('/app/' + appId + '/envs', newEnv)
         .then(function (res) {
           $timeout(function () {
-            Object.assign(newOperation, res.data);
-            newOperation.Id = res.data.Id;
-
-            if (null === routeId) {
-              return $appEnvs.operations.orphaned.push(newOperation);
-            }
-
-            $appEnvs.operations.byRouteId[routeId] = $appEnvs.operations.byRouteId[routeId] || [];
-            $appEnvs.operations.byRouteId[routeId].push(newOperation);
-            $appEnvs.operations.all.push(newOperation);
+            Object.assign(newEnv, res.data);
+            newEnv.Id = res.data.Id;
+            $appEnvs.envs.push(newEnv);
           });
         })
         .catch(function (err) {

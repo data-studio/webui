@@ -48,7 +48,7 @@
             name: 'environments',
           },
           resolve: {
-            environments: ['$api', '$stateParams', function ($api, $stateParams) {
+            envs: ['$api', '$stateParams', function ($api, $stateParams) {
               let appId = $stateParams.appId;
               return $api.apiGet(`/app/${appId}/envs`)
                 .then(function (res) {
