@@ -73,3 +73,29 @@
       $mdDialog.hide($scope.$data);
     };
   }
+
+  angular.module('DataStudioWebui.AppEditor')
+    .controller('CreateAppEnvDialogController', CreateAppEnvDialogController);
+
+  CreateAppEnvDialogController.$inject = ['$scope', '$timeout', '$mdDialog', 'app'];
+  function CreateAppEnvDialogController (  $scope,   $timeout,   $mdDialog,   app) {
+    $scope.$data = {
+      IsProduction: false,
+      Name: '',
+      _app: app,
+    };
+
+    $scope.app = app;
+
+    $scope.hide = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function() {
+      $mdDialog.hide($scope.$data);
+    };
+  }

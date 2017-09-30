@@ -39,12 +39,27 @@
             name: 'records',
           },
         })
-        .state('app.user.app.development', {
-          url:'/development',
-          templateUrl: 'modules/appEditor/html/development.html',
+        .state('app.user.app.environments', {
+          url:'/environments',
+          templateUrl: 'modules/appEditor/html/environments.html',
+          controller: 'AppEnvsController',
+          controllerAs: '$appEnvs',
           data: {
-            name: 'development',
+            name: 'environments',
           },
+          resolve: {
+            environments: ['$api', '$stateParams', function ($api, $stateParams) {
+              let appId = $stateParams.appId;
+              return $api.apiGet(`/app/${appId}/envs`)
+                .then(function (res) {
+                  return res.data;
+                })
+                .catch(function (err) {
+                  console.log(err);
+                  return {};
+                });
+            }],
+          }
         })
         .state('app.user.app.setup', {
           url:'/setup',
