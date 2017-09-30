@@ -48,7 +48,7 @@ body, html {
 
 
 body, md-content.md-blue-grey-theme {
-  background-color: #eee; }
+  background: linear-gradient(to top, #e0e0e0 0%, #fff 100%); }
 
 md-toolbar:not(.md-hue-1),
 .md-fab {
@@ -149,11 +149,22 @@ md-content.ds-main-content {
 
 #root {
   max-width: 1104px;
-  max-height: 600px;
+  max-height: 640px;
   height: auto;
   min-height: auto;
   background-color: #eeeeee;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px 3px 20px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 959px) {
+
+  #root {
+    max-height: auto;
+    height: 100%;
+    min-height: 100%;
+    border-radius: 0px;
+  }
+
 }
