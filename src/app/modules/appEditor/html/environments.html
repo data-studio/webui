@@ -1,4 +1,4 @@
-<div class="app-records"
+<div class="app-environments"
   layout="row"
   layout-xs="column">
 
@@ -15,46 +15,94 @@
       </md-card-content>
     </md-card> -->
 
-    <h2 class="md-title">
-      {{ $appEnvs.current.Name }} Environment
-    </h2>
 
     <md-card flex>
+      <md-card-header>
+        <md-card-header-text class="md-title">
+          {{ $appEnvs.current.Name }} Environment
+        </md-card-header-text>
+      </md-card-header>
+      <md-divider></md-divider>
       <md-card-content>
-        <h4 style="margin-top: 0;">App Id</h4>
-        <p>{{ model.Id }}</p>
-        <h4 style="margin-top: 0;">App Env Id</h4>
-        <p>{{ $appEnvs.current.Id }}</p>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">App</span>
+          <span flex></span>
+          <div>
+            <pre>{{ model.Name }}</pre>
+          </div>
+        </div>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">App Id</span>
+          <span flex></span>
+          <div>
+            <pre>{{ model.Id }}</pre>
+          </div>
+        </div>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">Api Host</span>
+          <span flex></span>
+          <div>
+            <pre>api.datastudio.eviratec.software</pre>
+          </div>
+        </div>
       </md-card-content>
     </md-card>
 
-    <h3 class="md-title">
-      Api Access
-    </h3>
-
     <md-card flex>
+      <md-card-header>
+        <md-card-header-text class="md-title">
+          IDs &amp; Keys
+        </md-card-header-text>
+      </md-card-header>
+      <md-divider></md-divider>
       <md-card-content>
-        <h4 style="margin-top: 0;">Api Host</h4>
-        <p>https://api-dsa7dg6as7.datastudio.eviratec.software/</p>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">Env Id</span>
+          <span flex></span>
+          <div>
+            <pre>{{ $appEnvs.current.Id }}</pre>
+          </div>
+        </div>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">Public Key</span>
+          <span flex></span>
+          <div>
+            <pre>gufhigfd7s8g97fdg7f8ds9-g8f9ds7g9</pre>
+          </div>
+        </div>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">Private Key</span>
+          <span flex></span>
+          <div>
+            <pre>**************************</pre>
+          </div>
+        </div>
       </md-card-content>
     </md-card>
 
-    <h3 class="md-title">
-      Keys &amp; Tokens
-    </h3>
-
     <md-card flex>
+      <md-card-header>
+        <md-card-header-text class="md-title">
+          Auth Providers
+        </md-card-header-text>
+      </md-card-header>
       <md-card-content>
-        <h4 style="margin-top: 0;">App Env Public Key</h4>
-        <p>gufhigfd7s8g97fds89gy7fds89yg7f8ds9-g8f9ds7g9</p>
-        <h4 style="margin-top: 0;">App Env Private Key</h4>
-        <p>******************************************</p>
+
       </md-card-content>
     </md-card>
 
-    <h3 class="md-title">
-      Auth Providers
-    </h3>
 
   </div>
 

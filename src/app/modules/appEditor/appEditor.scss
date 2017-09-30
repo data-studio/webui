@@ -77,6 +77,22 @@
     }
   }
 
+  .app-environments {
+    padding: 8px;
+    md-card {
+      margin: 16px 8px;
+      md-card-header {
+        background-color: #f0f0f0;
+      }
+      md-card-header-text .md-title {
+        font-weight: 300;
+      }
+    }
+    .api-side {
+      margin: 8px;
+    }
+  }
+
   .app-apis {
     padding: 8px;
     .api-side {
