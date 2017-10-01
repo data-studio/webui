@@ -27,8 +27,24 @@
 
     $appEnvs.current = envs[0];
 
+    $appEnvs.publicKey = '';
+    $appEnvs.privateKey = '';
+
     $appEnvs.setCurrentEnv = function ($event, env) {
       $appEnvs.current = env;
+      $api.apiGet(`/app/${$scope.model.Id}/env/${env.Id}`)
+        .then(function (res) {
+          let d = res.data;
+          $timeout(function () {
+            $appEnvs.publicKey = d.Keys[0].Key;
+            $appEnvs.privateKey = d.Keys[1].Key;
+          });
+          console.log(d);
+        })
+        .catch(function (err) {
+          console.log(err);
+          return {};
+        });
     };
 
     $appEnvs.createEnv = function ($event, app) {
