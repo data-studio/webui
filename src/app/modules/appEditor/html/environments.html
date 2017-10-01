@@ -33,32 +33,29 @@
       </md-card-header>
       <md-divider></md-divider>
       <md-card-content>
-        <div layout="row"
-          layout-align="center center"
-          layout-wrap>
-          <span flex-gt-md="25">Environment Id</span>
-          <span flex></span>
-          <div>
-            <pre>{{ $appEnvs.current.Id }}</pre>
-          </div>
-        </div>
-        <div layout="row"
-          layout-align="center center"
-          layout-wrap>
-          <span flex-gt-md="25">Public Key</span>
-          <span flex></span>
-          <div>
-            <textarea rows="5" cols="50">{{ $appEnvs.publicKey }}</textarea>
-          </div>
-        </div>
-        <div layout="row"
-          layout-align="center center"
-          layout-wrap>
-          <span flex-gt-md="25">Private Key</span>
-          <span flex></span>
-          <div>
-            <textarea rows="5" cols="50">{{ $appEnvs.privateKey }}</textarea>
-          </div>
+        <div layout="column">
+          <md-input-container>
+            <label>Environment Id</label>
+            <input ng-model="$appEnvs.current.Id"
+              md-select-on-focus
+              readonly>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Public Key</label>
+            <textarea ng-model="$appEnvs.publicKey"
+              rows="3"
+              md-select-on-focus
+              readonly>
+            </textarea>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Private Key</label>
+            <textarea ng-model="$appEnvs.privateKey"
+              rows="3"
+              md-select-on-focus
+              readonly>
+            </textarea>
+          </md-input-container>
         </div>
       </md-card-content>
     </md-card>
