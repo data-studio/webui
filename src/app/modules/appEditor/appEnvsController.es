@@ -25,12 +25,16 @@
 
     $appEnvs.envs = envs;
 
-    $appEnvs.current = envs[0];
+    $appEnvs.current = {};
 
     $appEnvs.publicKey = '';
     $appEnvs.privateKey = '';
 
-    $appEnvs.setCurrentEnv = function ($event, env) {
+    setCurrentEnv(null, envs[0]);
+
+    $appEnvs.setCurrentEnv = setCurrentEnv;
+
+    function setCurrentEnv ($event, env) {
       $appEnvs.current = env;
       $api.apiGet(`/app/${$scope.model.Id}/env/${env.Id}`)
         .then(function (res) {
