@@ -15,44 +15,15 @@
       </md-card-content>
     </md-card> -->
 
-
-    <md-card flex>
-      <md-card-header>
-        <md-card-header-text class="md-title">
-          {{ $appEnvs.current.Name }} Environment
-        </md-card-header-text>
-      </md-card-header>
-      <md-divider></md-divider>
-      <md-card-content>
-        <div layout="row"
-          layout-align="center center"
-          layout-wrap>
-          <span flex-gt-md="25">App</span>
-          <span flex></span>
-          <div>
-            <pre>{{ model.Name }}</pre>
-          </div>
-        </div>
-        <div layout="row"
-          layout-align="center center"
-          layout-wrap>
-          <span flex-gt-md="25">App Id</span>
-          <span flex></span>
-          <div>
-            <pre>{{ model.Id }}</pre>
-          </div>
-        </div>
-        <div layout="row"
-          layout-align="center center"
-          layout-wrap>
-          <span flex-gt-md="25">Api Host</span>
-          <span flex></span>
-          <div>
-            <pre>api.datastudio.eviratec.software</pre>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
+    <div style="border-bottom: 1px solid rgba(0,0,0,0.12);margin:24px 8px 8px;padding:0 8px;height:49px;"
+      layout="row"
+      layout-align="start center">
+      <md-card-header-text>
+        <span class="md-headline">
+          {{ $appEnvs.current.Name }}
+        </span>
+      </md-card-header-text>
+    </div>
 
     <md-card flex>
       <md-card-header>
@@ -65,7 +36,7 @@
         <div layout="row"
           layout-align="center center"
           layout-wrap>
-          <span flex-gt-md="25">Env Id</span>
+          <span flex-gt-md="25">Environment Id</span>
           <span flex></span>
           <div>
             <pre>{{ $appEnvs.current.Id }}</pre>
@@ -95,11 +66,72 @@
     <md-card flex>
       <md-card-header>
         <md-card-header-text class="md-title">
+          Environment Setup
+        </md-card-header-text>
+      </md-card-header>
+      <md-divider></md-divider>
+      <md-card-content>
+        <table style="width: 100%;" cellpadding="10px">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th style="text-align: left;">Feature</th>
+              <th>URI Base</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width:10%" layout layout-align="center center"><md-checkbox style="margin:0px;"></td>
+              <td style="width:40%">API Documentation</td>
+              <td style="width:50%"><input type="text" style="width:95%;"></td>
+            </tr>
+            <tr>
+              <td style="width:10%" layout layout-align="center center"><md-checkbox style="margin:0px;"></td>
+              <td style="width:40%">API Explorer</td>
+              <td style="width:50%"><input type="text" style="width:95%;"></td>
+            </tr>
+          </tbody>
+        </table>
+      </md-card-content>
+    </md-card>
+
+    <md-card flex>
+      <md-card-header>
+        <md-card-header-text class="md-title">
           Auth Providers
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-
+        <table style="width: 100%;" cellpadding="10px">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th style="text-align: left;">Provider</th>
+              <th>Client ID</th>
+              <th>Secret Key</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width:10%" layout layout-align="center center"><md-checkbox style="margin:0px;"></td>
+              <td style="width:30%">Facebook</td>
+              <td style="width:30%"><input type="text" style="width:95%;"></td>
+              <td style="width:30%"><input type="text" style="width:95%;"></td>
+            </tr>
+            <tr>
+              <td style="width:10%" layout layout-align="center center"><md-checkbox style="margin:0px;"></td>
+              <td style="width:30%">Google</td>
+              <td style="width:30%"><input type="text" style="width:95%;"></td>
+              <td style="width:30%"><input type="text" style="width:95%;"></td>
+            </tr>
+            <tr>
+              <td style="width:10%" layout layout-align="center center"><md-checkbox style="margin:0px;"></td>
+              <td style="width:30%">Amazon Cognito</td>
+              <td style="width:30%"><input type="text" style="width:95%;"></td>
+              <td style="width:30%"><input type="text" style="width:95%;"></td>
+            </tr>
+          </tbody>
+        </table>
       </md-card-content>
     </md-card>
 

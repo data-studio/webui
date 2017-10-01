@@ -5,6 +5,44 @@
   <div flex>
 
     <md-card flex>
+      <md-card-header>
+        <md-card-header-text class="md-title">
+          {{ $appEnvs.current.Name }} Environment
+        </md-card-header-text>
+      </md-card-header>
+      <md-divider></md-divider>
+      <md-card-content>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">App</span>
+          <span flex></span>
+          <div>
+            <pre>{{ model.Name }}</pre>
+          </div>
+        </div>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">App Id</span>
+          <span flex></span>
+          <div>
+            <pre>{{ model.Id }}</pre>
+          </div>
+        </div>
+        <div layout="row"
+          layout-align="center center"
+          layout-wrap>
+          <span flex-gt-md="25">Api Host</span>
+          <span flex></span>
+          <div>
+            <pre>api.datastudio.eviratec.software</pre>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+    <md-card flex>
       <md-card-content layout="column">
         <div layout="row">
           <md-input-container>
