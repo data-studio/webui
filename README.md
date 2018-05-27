@@ -5,13 +5,9 @@ No instructions (aka look at the source ;)
 This works with:
 https://github.com/eviratec/ds-svc-final/tree/master
 
-## If you 💖 it: Please consider donating
+## If you 💖 it: Please consider contributing or sharing
 
-It might make more of a difference than you think!
-
-BTC Donations To:
-1. `13fENDubSmfgEo3XucciNzqAXdcaVMhtX1`
-2. `1ASEhcFrnyEHUeFxtkSqBx8EyYSYWF2kJJ`
+Guidelines coming soon...
 
 ## License
 
